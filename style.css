@@ -493,13 +493,13 @@ width: 100%;
 
 .event-agenda-section {
     width: 100%;
-    max-width: 900px; /* Adjust to match your overall content width */
-    margin: 40px auto; /* Center the section with vertical margin */
+    max-width: 900px; 
+    margin: 40px auto; 
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center; 
     gap: 20px;
 }
 
@@ -521,8 +521,8 @@ width: 100%;
     box-shadow: 0 0 5px #1bff00;
     border: 1px solid #1bff00;
     color: #1bff00;
-    width: fit-content; /* Make it fit the content */
-    align-self: center; /* Center the terminal line */
+    width: fit-content; 
+    align-self: center; 
 }
 
 .event-agenda-section .intro-text {
@@ -536,45 +536,45 @@ width: 100%;
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 25px; /* Space between timeline items */
-    position: relative; /* For the vertical line */
+    gap: 25px; 
+    position: relative; 
 }
 
 /* Vertical timeline line */
 .timeline-container::before {
     content: '';
     position: absolute;
-    left: 40px; /* Adjust to align with icons */
+    left: 40px; 
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #1bff00; /* Green line */
+    background-color: #1bff00; 
     box-shadow: 0 0 5px #1bff00;
     z-index: 0;
 }
 
 .timeline-item {
     display: flex;
-    align-items: flex-start; /* Align icon and card to the top */
+    align-items: flex-start; 
     position: relative;
-    z-index: 1; /* Ensure items are above the line */
+    z-index: 1; 
 }
 
 .timeline-icon-wrapper {
-    flex-shrink: 0; /* Prevent icon from shrinking */
-    width: 80px; /* Space for icon and time */
+    flex-shrink: 0; 
+    width: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5px; /* Adjust icon vertical alignment */
+    padding-top: 5px; 
 }
 
 .timeline-icon {
-    font-size: 2.5em; /* Size of the icon */
+    font-size: 2.5em;
     color: #1bff00;
     text-shadow: 0 0 8px #1bff00;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background for icon */
-    border-radius: 50%; /* Make it circular */
+    background-color: rgba(0, 0, 0, 0.8); 
+    border-radius: 50%; 
     padding: 10px;
     border: 2px solid #1bff00;
     box-shadow: 0 0 10px #1bff00;
@@ -586,8 +586,8 @@ width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 8px #1bff00;
     border: 1px solid #1bff00;
-    flex-grow: 1; /* Allow card to take remaining space */
-    margin-left: 20px; /* Space between icon and card */
+    flex-grow: 1; 
+    margin-left: 20px; 
     color: #76ff76;
     display: flex;
     flex-direction: column;
@@ -621,14 +621,14 @@ width: 100%;
 .process-id {
     font-size: 0.85em;
     color: #76ff76;
-    margin-left: auto; /* Pushes it to the right */
+    margin-left: auto; 
 }
 
 .event-title {
     font-size: 1.5em;
     color: #1bff00;
     text-shadow: 0 0 5px #1bff00;
-    margin: 0; /* Remove default margin */
+    margin: 0; 
 }
 
 .event-description {
@@ -648,45 +648,43 @@ width: 100%;
     margin-right: 5px;
 }
 
-/* Responsive adjustments for agenda */
 @media (max-width: 768px) {
     .timeline-container::before {
-        left: 25px; /* Adjust line position for smaller screens */
+        left: 25px; 
     }
     .timeline-icon-wrapper {
-        width: 50px; /* Smaller space for icon */
+        width: 50px; 
     }
     .timeline-icon {
-        font-size: 2em; /* Smaller icon */
+        font-size: 2em; 
         padding: 8px;
     }
     .event-card {
-        margin-left: 15px; /* Smaller gap */
+        margin-left: 15px; 
         padding: 15px;
     }
     .event-header {
-        flex-wrap: wrap; /* Allow header elements to wrap */
+        flex-wrap: wrap; 
         gap: 10px;
     }
     .process-id {
-        margin-left: 0; /* Remove auto margin to allow wrapping */
-        width: 100%; /* Take full width if wrapped */
-    }
+        margin-left: 0; 
+        width: 100%; 
     .event-title {
         font-size: 1.3em;
     }
 }
-
+}
       /*VENUS AND THE MAP */
 .venue-date-section {
     width: 100%;
-    max-width: 900px; /* Adjust to match your overall content width */
-    margin: 40px auto; /* Center the section with vertical margin */
+    max-width: 900px; 
+    margin: 40px auto; 
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center;
     gap: 20px;
 }
 
@@ -708,16 +706,16 @@ width: 100%;
     box-shadow: 0 0 5px #1bff00;
     border: 1px solid #1bff00;
     color: #1bff00;
-    width: fit-content; /* Make it fit the content */
-    align-self: center; /* Center the terminal line */
+    width: fit-content; 
+    align-self: center; 
 }
 
 .venue-content-wrapper {
   display: flex;
-  gap: 20px; /* space between the two boxes */
-  align-items: flex-start; /* align them at the top */
-  justify-content: space-between; /* optional - spread them out */
-  flex-wrap: wrap; /* so it wraps on smaller screens */
+  gap: 20px; 
+  align-items: flex-start; 
+  justify-content: space-between;
+  flex-wrap: wrap; 
 }
 
 
@@ -728,9 +726,9 @@ width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 8px #1bff00;
     border: 1px solid #1bff00;
-    flex: 1; /* Allows columns to grow and shrink */
-    min-width: 300px; /* Minimum width for each column */
-    max-width: 45%; /* Max width to allow two columns side-by-side */
+    flex: 1; 
+    min-width: 300px; 
+    max-width: 45%; 
     color: #76ff76;
     display: flex;
     flex-direction: column;
@@ -764,12 +762,12 @@ width: 100%;
 .terminal-response {
     font-size: 1em;
     color: #76ff76;
-    padding-left: 10px; /* Indent response */
+    padding-left: 10px; 
     white-space: pre-wrap;
 }
 
 .terminal-response.status-ready {
-    color: #1bff00; /* Brighter green for READY_TO_EXECUTE */
+    color: #1bff00; 
     font-weight: bold;
     text-shadow: 0 0 5px #1bff00;
 }
@@ -785,7 +783,6 @@ width: 100%;
 .map-container {
     position: relative;
     width: 100%;
-    /* The iframe itself will handle height, but you can set a min-height if needed */
     margin-bottom: 15px;
 }
 
@@ -805,8 +802,8 @@ width: 100%;
 }
 
 .get-directions-button {
-    background-color: #1bff00; /* Green button */
-    color: #000; /* Black text */
+    background-color: #1bff00; 
+    color: #000; 
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -823,7 +820,7 @@ width: 100%;
 }
 
 .get-directions-button:hover {
-    background-color: #00cc00; /* Slightly darker green on hover */
+    background-color: #00cc00; 
     box-shadow: 0 0 15px #1bff00;
 }
 
@@ -837,8 +834,8 @@ width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 8px #1bff00;
     border: 1px solid #1bff00;
-    width: calc(45% - 15px); /* Match width of columns above for a balanced look */
-    align-self: flex-start; /* Align to the left */
+    width: calc(45% - 15px); 
+    align-self: flex-start; 
     margin-top: 30px;
     color: #76ff76;
     display: flex;
@@ -875,8 +872,8 @@ width: 100%;
     border: 1px solid #1bff00;
     text-align: center;
     margin-top: 30px;
-    width: fit-content; /* Make box fit its content */
-    align-self: center; /* Center the box */
+    width: fit-content;
+    align-self: center; 
     color: #76ff76;
 }
 
@@ -910,17 +907,16 @@ width: 100%;
 }
 
 
-/* Responsive adjustments for venue & date section */
 @media (max-width: 768px) {
     .venue-content-wrapper {
-        flex-direction: column; /* Stack columns vertically */
+        flex-direction: column; 
         gap: 20px;
     }
     .terminal-output-column,
     .navigation-system-column,
     .location-details-box {
-        max-width: 100%; /* Full width for stacked columns */
-        width: 100%; /* Ensure full width */
+        max-width: 100%; 
+        width: 100%; 
     }
     .venue-date-section .main-title {
         font-size: 2rem;
@@ -930,24 +926,24 @@ width: 100%;
         font-size: 1.3em;
     }
     .quick-access-box {
-        width: 90%; /* Adjust width for smaller screens */
+        width: 90%; 
     }
 }
 
 
 
 
-/* Contant css */
+/* CONATNT */
 
 .contact-matrix-section {
     width: 100%;
-    max-width: 900px; /* Adjust to match your overall content width */
-    margin: 40px auto; /* Center the section with vertical margin */
+    max-width: 900px; 
+    margin: 40px auto;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center; 
     gap: 20px;
 }
 
@@ -969,8 +965,8 @@ width: 100%;
     box-shadow: 0 0 5px #1bff00;
     border: 1px solid #1bff00;
     color: #1bff00;
-    width: fit-content; /* Make it fit the content */
-    align-self: center; /* Center the terminal line */
+    width: fit-content; 
+    align-self: center; 
 }
 
 .contact-matrix-section .intro-text {
@@ -982,8 +978,8 @@ width: 100%;
 
 .contact-content-wrapper {
     display: flex;
-    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-    gap: 30px; /* Space between the two columns */
+    flex-wrap: wrap;
+    gap: 30px; 
     width: 100%;
     justify-content: center;
 }
@@ -994,9 +990,9 @@ width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 8px #1bff00;
     border: 1px solid #1bff00;
-    flex: 1; /* Allows columns to grow and shrink */
-    min-width: 300px; /* Minimum width for each column */
-    max-width: 45%; /* Max width to allow two columns side-by-side */
+    flex: 1; 
+    min-width: 300px;
+    max-width: 45%;
     color: #76ff76;
     display: flex;
     flex-direction: column;
@@ -1013,15 +1009,15 @@ width: 100%;
 
 .contact-item {
     display: flex;
-    align-items: flex-start; /* Align icon with the top of text */
+    align-items: flex-start; 
     gap: 15px;
 }
 
 .contact-icon {
     font-size: 1.5em;
     color: #1bff00;
-    flex-shrink: 0; /* Prevent icon from shrinking */
-    padding-top: 2px; /* Adjust vertical alignment */
+    flex-shrink: 0; 
+    padding-top: 2px;
 }
 
 .contact-details {
@@ -1047,12 +1043,12 @@ width: 100%;
     align-items: center;
     gap: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px dashed rgba(27, 255, 0, 0.3); /* Dashed separator */
+    border-bottom: 1px dashed rgba(27, 255, 0, 0.3); 
     margin-bottom: 10px;
 }
 
 .social-item:last-of-type {
-    border-bottom: none; /* No border for the last item */
+    border-bottom: none; 
     margin-bottom: 0;
 }
 
@@ -1061,7 +1057,7 @@ width: 100%;
     font-weight: bold;
     color: #1bff00;
     margin: 0;
-    flex-grow: 1; /* Allows name to take available space */
+    flex-grow: 1; 
 }
 
 .social-handle {
@@ -1075,7 +1071,7 @@ width: 100%;
     font-size: 0.9em;
     text-decoration: none;
     transition: color 0.2s ease;
-    margin-left: 10px; /* Space from handle */
+    margin-left: 10px; 
 }
 
 .external-link:hover {
@@ -1093,7 +1089,7 @@ width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     margin-top: 20px;
-    align-self: center; /* Center the button */
+    align-self: center; 
 }
 
 .social-follow-button:hover {
@@ -1109,8 +1105,8 @@ width: 100%;
     border: 1px solid #1bff00;
     text-align: center;
     margin-top: 30px;
-    width: fit-content; /* Make box fit its content */
-    align-self: center; /* Center the box */
+    width: fit-content; 
+    align-self: center; 
     color: #76ff76;
 }
 
@@ -1134,13 +1130,13 @@ width: 100%;
     margin-top: 5px;
 }
 
-/* Footer-like section styles */
+/* FOOTER */
 .footer-message {
     width: 100%;
     max-width: 900px;
-    margin-top: 50px; /* Space above footer */
+    margin-top: 50px; 
     padding-top: 30px;
-    border-top: 1px dashed rgba(27, 255, 0, 0.3); /* Separator line */
+    border-top: 1px dashed rgba(27, 255, 0, 0.3); 
     text-align: center;
     color: #76ff76;
 }
@@ -1171,18 +1167,17 @@ width: 100%;
 }
 
 .built-with-icon {
-    color: #ff0000; /* Red heart icon */
+    color: #ff0000; 
     text-shadow: 0 0 5px #ff0000;
 }
 
-/* Responsive adjustments for contact section */
 @media (max-width: 768px) {
     .contact-content-wrapper {
-        flex-direction: column; /* Stack columns vertically */
+        flex-direction: column; 
         gap: 20px;
     }
     .contact-column {
-        max-width: 100%; /* Full width for stacked columns */
+        max-width: 100%; 
     }
     .contact-matrix-section .main-title {
         font-size: 2rem;
@@ -1191,7 +1186,7 @@ width: 100%;
         font-size: 1.3em;
     }
     .response-time-box {
-        width: 90%; /* Adjust width for smaller screens */
+        width: 90%; 
     }
     .response-value {
         font-size: 1.8em;
