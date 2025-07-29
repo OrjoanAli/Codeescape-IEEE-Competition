@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CODESCAPE - The Matrix Awaits</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-black text-green-400 min-h-screen flex flex-col justify-between items-center relative overflow-hidden">
+  
+  <!-- Matrix Rain Canvas -->
+  <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+
+  <!-- Header -->
+<header class="w-full pt-48 pb-10 text-center z-10 relative">
+  <div class="bg-overlay inline-block mx-auto">
+    <h1 class="text-9xl font-extrabold matrix-text glitch-effect">CODESCAPE</h1>
+    <p class="text-green-300 mt-4">Organized by IEEE CS UJ</p>
+    <p class="mt-2">You're not just solving problems.<br>
+      <span class="text-green-500 font-bold">You're escaping the Matrix.</span>
+    </p>
+    <p class="mt-4 font-mono text-sm text-green-400">
+      [root@codescape ~]$ ./initialize_competition.sh
+      <span class="text-xs text-gray-400"># follow the white rabbit</span>
+    </p>
+  </div>
+</header>
+
+<header class="w-full pt-16 pb-10 text-center z-10 relative">
+  ...
+</header>
+
+<main class="flex-grow flex items-center justify-center relative -mt-24">
+  <div class="flex flex-col md:flex-row items-center justify-center gap-x-8 gap-y-6">
+    
+    <!-- Red Pill -->
+    <div class="relative group cursor-pointer m-0 p-0">
+      <img src="red-pill.png" alt="Red Pill"
+           onclick="window.location.href = 'index.html';"
+           class="w-56 md:w-72 m-0 p-0 transition-transform duration-300 transform group-hover:scale-110" />
+      <div class="absolute top-1/2 left-full ml-6 transform -translate-y-1/2 bg-black text-green-400 text-lg px-4 py-2 rounded shadow-lg border border-green-500 opacity-0 group-hover:opacity-100 transition duration-300 w-64 z-20">
+        The Red Pill: See how deep the rabbit hole goes.
+      </div>
+    </div>
+
+    <!-- Blue Pill -->
+    <div class="relative group cursor-pointer m-0 p-0">
+      <img src="blue-pill.png" alt="Blue Pill"
+           onclick="window.location.href = 'https://www.google.com';"
+           class="w-56 md:w-72 m-0 p-0 transition-transform duration-300 transform group-hover:scale-110" />
+      <div class="absolute top-1/2 left-full ml-6 transform -translate-y-1/2 bg-black text-green-400 text-lg px-4 py-2 rounded shadow-lg border border-green-500 opacity-0 group-hover:opacity-100 transition duration-300 w-64 z-20">
+        The Blue Pill: Stay in the Matrix.
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

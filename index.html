@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CODESCAPE - The Matrix Awaits</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body class="bg-black text-green-400">
+  <!-- Matrix Rain Canvas -->
+  <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+
+  <!-- Header -->
+  <header class="w-full py-6 text-center z-10">
+    <h1 class="text-8xl font-bold matrix-text glitch-effect">CODESCAPE</h1>
+    <p class="text-xl mt-2 text-green-300">The Matrix Awaits</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative">
+    <div class="flex flex-col items-center justify-center gap-20">
+      
+      <!-- Countdown -->
+      <div class="hero text-xl mt-2 text-white">
+        <h1 class="main-title">Escape Countdown</h1>
+        <div class="timebox">
+          <div class="time"><h2 id="days">00</h2><p>Days</p></div>
+          <div class="time"><h2 id="hours">00</h2><p>Hours</p></div>
+          <div class="time"><h2 id="minutes">00</h2><p>Minutes</p></div>
+          <div class="time"><h2 id="seconds">00</h2><p>Seconds</p></div>
+        </div>
+      </div>
+
+      <!-- about containers -->
+        <div class="container">
+          <h1 class="main-title">About Codescape</h1>
+          <div class="terminal-line">[systemmatrix ~]$ cat about_codescape.txt</div>
+
+          <div class="content-wrapper">
+            <!-- LEFT COLUMN -->
+            <div class="left-column">
+              <!-- TOP LEFT: Codescape description -->
+              <div class="info-box">
+                <p>
+                  Codescape is IEEE Computer Society UJ's premier Matrix-inspired coding competition.
+                  Navigate through three challenging stages that will test your problem-solving skills,
+                  database knowledge, and coding speed.
+                </p>
+              </div>
+
+              <!-- BELOW LEFT: Cyberpunk paragraph -->
+              <div class="info-box">
+                <p>
+                  Join fellow programmers in this cyberpunk adventure where only the most skilled will
+                  escape the digital maze and claim victory in the ultimate coding challenge.
+                </p>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-column">
+              <div class="info-box">
+                <div class="terminal-text" id="typewriter-text"></div>
+                <div class="quote-box">
+                  <p>"There is no spoon. There is no impossible problem. There is only code waiting to be written."</p>
+                  <p class="author">- The Oracle (Probably)</p>
+                </div>
+                </div>
+                    <!-- TERMINAL PROMPT -->
+                  <div class="terminal-prompt">
+                    <span class="prompt-icon">$</span>
+                    <span class="prompt-text">echo "Welcome to the real world"</span>
+                    <span class="cursor">_</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+
+      <!-- The Three Stages -->
+      <div class="container">
+        <h1 class="main-title">The Three Stages</h1>
+        <div class="terminal-line">[systemmatrix ~]$ ls -la / challenges/</div>
+        <div class="content-wrapper">
+
+            <p>Three progressively challenging stages await. Each stage will push your skills to the limit as you advance deeper into the Matrix.</p>
+
+        </div>
+
+        <div class="stage-cards-container">
+          <!-- Stage 1 -->
+          <div class="stage-card">
+            <div class="stage-header-wrapper">
+              <i class="fa-solid fa-terminal text-5xl text-white"></i>
+              <div class="stage-number-box">Stage 1</div>
+            </div>
+            <h2 class="card-title">Problem Solving</h2>
+            <p class="card-description">Navigate through algorithmic challenges that will test your logical thinking and computational skills.</p>
+            <div class="required-skills">
+              <p>Required Skills:</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Algorithms</span>
+                <span class="skill-tag">Data Structures</span>
+                <span class="skill-tag">Logic</span>
+                <span class="skill-tag">Optimization</span>
+              </div>
+            </div>
+            <div class="terminal-command">$ ./execute_stage_1.sh</div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="stage-card">
+            <div class="stage-header-wrapper">
+              <i class="fas fa-database text-5xl text-white"></i>
+              <div class="stage-number-box">Stage 2</div>
+            </div>
+            <h2 class="card-title">SQL Queries</h2>
+            <p class="card-description">Dive deep into database mysteries. Query your way through complex data relationships.</p>
+            <div class="required-skills">
+              <p>Required Skills:</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Database Design</span>
+                <span class="skill-tag">Query Optimization</span>
+                <span class="skill-tag">Joins</span>
+                <span class="skill-tag">Indexing</span>
+              </div>
+            </div>
+            <div class="terminal-command">$ ./execute_stage_2.sh</div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="stage-card">
+            <div class="stage-header-wrapper">
+              <i class="fas fa-question-circle text-5xl text-white"></i>
+              <div class="stage-number-box">Stage 3</div>
+            </div>
+            <h2 class="card-title">???</h2>
+            <p class="card-description">A mysterious third stage awaits... Only those who pass the first two will discover what lies beyond.</p>
+            <div class="required-skills">
+              <p>Required Skills:</p>
+              <div class="skill-tags">
+                <span class="skill-tag">???</span>
+                <span class="skill-tag">???</span>
+                <span class="skill-tag">???</span>
+                <span class="skill-tag">???</span>
+              </div>
+            </div>
+            <div class="terminal-command">$ ./execute_stage_3.sh</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sponsors & Partners -->
+      <div class="sponsors-section">
+        <h1 class="main-title">Sponsors & Partners</h1>
+        <div class="terminal-line">[sponsors@matrix ~]$ ls -la /partnerships/</div>
+        <p class="intro-text">Join us in powering the future of competitive programming</p>
+
+        <!-- Gold Sponsors -->
+        <div class="sponsor-category">
+          <span class="category-icon text-[#FFD700]"><i class="fas fa-crown"></i></span> 
+          <h2 class="category-title text-[#FFD700]">Gold Sponsors</h2>
+        </div>
+        <div class="sponsor-grid gold-grid">
+          <div class="sponsor-card"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Gold Partner 1</p></div>
+          <div class="sponsor-card"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Gold Partner 2</p></div>
+        </div>
+
+        <!-- Silver Sponsors -->
+        <div class="sponsor-category mt-10">
+          <span class="category-icon text-[#C0C0C0]"><i class="fa-solid fa-medal"></i></span>
+          <h2 class="category-title text-[#C0C0C0]">Silver Sponsors</h2>
+        </div>
+        <div class="sponsor-grid silver-grid">
+          <div class="sponsor-card w-[180px] sm:w-[200px]"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Silver Partner 1</p></div>
+          <div class="sponsor-card w-[180px] sm:w-[200px]"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Silver Partner 2</p></div>
+          <div class="sponsor-card w-[180px] sm:w-[200px]"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Silver Partner 3</p></div>
+        </div>
+
+        <!-- Bronze Sponsors -->
+        <div class="sponsor-category mt-10">
+          <span class="category-icon text-[#cd7f32]"><i class="fa-solid fa-award"></i></span>
+          <h2 class="category-title text-[#cd7f32]">Bronze Sponsors</h2>
+        </div>
+        <div class="sponsor-grid bronze-grid flex flex-wrap justify-center gap-6 max-w-[900px] mx-auto">
+          <div class="sponsor-card w-[180px] sm:w-[180px]"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Bronze Partner 1</p></div>
+          <div class="sponsor-card w-[180px] sm:w-[180px]"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Bronze Partner 2</p></div>
+          <div class="sponsor-card w-[180px] sm:w-[180px]"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Bronze Partner 3</p></div>
+          <div class="sponsor-card w-[180px] sm:w-[180px]"><div class="logo-placeholder">[LOGO]</div><p class="sponsor-name">Bronze Partner 4</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!---event agenda section-->
+
+    <div class="event-agenda-section">
+    <h1 class="main-title">Event Agenda</h1>
+    <div class="terminal-line">[timeline@codescape ~]$ cat schedule.timeline</div>
+    <p class="intro-text">Your journey through the Matrix timeline</p>
+
+    <div class="timeline-container">
+        <!-- Event 1: Registration -->
+        <div class="timeline-item">
+            <div class="timeline-icon-wrapper">
+                <!-- User icon from Font Awesome -->
+                <i class="fas fa-user timeline-icon"></i>
+            </div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span class="event-time">09:00 AM</span>
+                    <span class="process-id">process_1.exe</span>
+                </div>
+                <h2 class="event-title">Registration</h2>
+                <p class="event-description">Check-in and receive your digital identity</p>
+                <div class="event-status">
+                    <span class="status-indicator">></span> Status: Ready
+                </div>
+            </div>
+        </div>
+
+        <!-- Event 2: Opening Ceremony -->
+        <div class="timeline-item">
+            <div class="timeline-icon-wrapper">
+                <!-- Trophy icon from Font Awesome -->
+                <i class="fas fa-trophy timeline-icon"></i>
+            </div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span class="event-time">09:30 AM</span>
+                    <span class="process-id">process_2.exe</span>
+                </div>
+                <h2 class="event-title">Opening Ceremony</h2>
+                <p class="event-description">Welcome to the Matrix - Rules and guidelines</p>
+                <div class="event-status">
+                    <span class="status-indicator">></span> Status: Pending
+                </div>
+            </div>
+        </div>
+
+        <!-- Event 3: Stage 1: Problem Solving -->
+        <div class="timeline-item">
+            <div class="timeline-icon-wrapper">
+                <!-- Clock icon from Font Awesome -->
+                <i class="fas fa-clock timeline-icon"></i>
+            </div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span class="event-time">10:00 AM</span>
+                    <span class="event-duration">2h 15m</span>
+                    <span class="process-id">process_3.exe</span>
+                </div>
+                <h2 class="event-title">Stage 1: Problem Solving</h2>
+                <p class="event-description">Algorithm challenges and logical puzzles</p>
+                <!-- You can add status or other details here if needed -->
+            </div>
+        </div>
+
+        <!-- Add more events following the same structure -->
+    </div>
+</div>
+
+
+
+
+<!--venu-->
+<div class="venue-date-section">
+    <h1 class="main-title">Venue & Date</h1>
+    <div class="terminal-line">[location@matrix ~]$ wherein codescape_2025</div>
+
+    <div class="venue-content-wrapper">
+            <!-- Location Details Box -->
+<!-- Location Details Box -->
+<div class="location-details-box">
+    <h2 class="column-title">Location Details</h2>
+    <div class="detail-item">
+        <i class="fas fa-university detail-icon"></i>
+        <p>University of Jordan Academy</p>
+    </div>
+    <div class="detail-item">
+        <i class="fas fa-calendar-alt detail-icon"></i>
+        <p>Saturday, August 2nd, 2025</p>
+    </div>
+    <div class="detail-item">
+        <i class="fas fa-clock detail-icon"></i>
+        <p>09:00 AM - 05:00 PM</p>
+    </div>
+
+    <!-- Terminal Box placed INSIDE location box -->
+    <div class="terminal-box">
+        <div class="terminal-prompt-line">
+            <span class="prompt-user">[visitor@matrix]</span>
+            <span class="prompt-path">~</span>
+            <span class="prompt-command">$ echo "Looking forward to CODESCAPE!"</span>
+        </div>
+        <div class="terminal-response">Looking forward to CODESCAPE!</div>
+
+        <div class="terminal-prompt-line">
+            <span class="prompt-user">[visitor@matrix]</span>
+            <span class="prompt-path">~</span>
+            <span class="prompt-command">$ date</span>
+        </div>
+        <div class="terminal-response">Sat Aug 2 09:00:00 2025</div>
+    </div>
+</div>
+
+<div class="navigation-system-column">
+    <h2 class="column-title">Navigation System</h2>
+    <div class="map-container">
+        <!-- Google Maps Embed -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.036531889621!2d35.8729941!3d32.014124100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c9f9da28158ef%3A0x8eaf1c916f028efd!2sKing%20Abdullah%20II%20School%20of%20Information%20Technology!5e0!3m2!1sen!2sjo!4v1753623200290!5m2!1sen!2sjo" 
+            width="100%"
+            height="250"
+            style="border:0; border-radius: 5px; box-shadow: 0 0 8px #1bff00;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-coordinates">32.0267° N, 35.8833° E</div>
+    </div>
+    <a href="https://www.google.com/maps/place/King+Abdullah+II+School+of+Information+Technology/@32.0141241,35.8729941,17z/data=!3m1!4b1!4m6!3m5!1s0x151c9f9da28158ef:0x8eaf1c916f028efd!8m2!3d32.0141241!4d35.8729941!16s%2Fg%2F11cs0rxnlh?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+        <button class="get-directions-button">
+            <i class="fas fa-location-arrow"></i> GET DIRECTIONS
+        </button>
+    </a>
+</div>
+
+
+
+<!--Contact-->
+<div class="contact-matrix-section">
+    <h1 class="main-title">Contact Matrix</h1>
+    <div class="terminal-line">[communication@matrix ~]$ establish_connection.sh</div>
+    <p class="intro-text">Need assistance navigating the Matrix? We're here to help.</p>
+
+    <div class="contact-content-wrapper">
+        <!-- Direct Connection Column -->
+        <div class="contact-column direct-connection">
+            <h2 class="column-title">Direct Connection</h2>
+            <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <div class="contact-details">
+                    <p class="contact-value">codescape@ieee-cs-uj.org</p>
+                    <p class="contact-label">Primary communication channel</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <div class="contact-details">
+                    <p class="contact-value">+962 6 XXX XXXX</p>
+                    <p class="contact-label">Emergency hotline during event</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <div class="contact-details">
+                    <p class="contact-value">University of Jordan Academy</p>
+                    <p class="contact-label">Physical location coordinates</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Networks Column -->
+        <div class="contact-column social-networks">
+            <h2 class="column-title">Social Networks</h2>
+            <div class="social-item">
+                <p class="social-name">Instagram</p>
+                <p class="social-handle">@ieee_cs_uj</p>
+                <a href="#" class="external-link" aria-label="Visit Instagram"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="social-item">
+                <p class="social-name">LinkedIn</p>
+                <p class="social-handle">IEEE CS UJ</p>
+                <a href="#" class="external-link" aria-label="Visit LinkedIn"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="social-item">
+                <p class="social-name">Facebook</p>
+                <p class="social-handle">IEEE Computer Society UJ</p>
+                <a href="#" class="external-link" aria-label="Visit Facebook"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="social-item">
+                <p class="social-name">GitHub</p>
+                <p class="social-handle">ieee-cs-uj</p>
+                <a href="#" class="external-link" aria-label="Visit GitHub"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="social-follow-button">
+                <span class="status-indicator">></span> Follow us for real-time updates
+            </div>
+        </div>
+    </div>
+
+    <!-- Expected Response Time Box -->
+    <div class="response-time-box">
+        <p class="response-label">Expected Response Time:</p>
+        <h2 class="response-value glitch-effect">&lt; 24 Hours</h2>
+        <p class="response-note">Matrix operates in real-time</p>
+    </div>
+
+    <!-- Footer-->
+    <div class="footer-message">
+        <div class="terminal-line">[system@codescape ~]$ echo "The Matrix has you..."</div>
+        <p class="red-pill-prompt">Ready to take the red pill?</p>
+        <p class="copyright-info">© 2025 IEEE Computer Society - University of Jordan. All rights reserved.</p>
+        <p class="built-with">Built with &lt;Code&gt; and <i class="fas fa-heart built-with-icon"></i> in the Matrix</p>
+    </div>
+</div>
+
+
+  </main>
+</body>
+</html>

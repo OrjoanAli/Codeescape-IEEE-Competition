@@ -1,0 +1,1202 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier Prime', monospace;
+  background-color: #000;
+  height: 100vh;
+}
+
+.matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.bg-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.matrix-text {
+  font-family: 'Courier Prime', monospace;
+  color: #1bff00;
+  text-shadow: 0 0 8px #1bff00;
+}
+
+.glitch-effect {
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 0 0 8px #1bff00; transform: translate(0); }
+  20% { text-shadow: 2px 0 8px #1bff00, -2px 0 8px #003e05; transform: translate(-2px, 2px); }
+  40% { text-shadow: -2px 0 8px #1bff00, 2px 0 8px #003e05; transform: translate(2px, -2px); }
+  60% { text-shadow: 0 0 8px #1bff00; transform: translate(0); }
+  80% { text-shadow: 1px 0 8px #1bff00, -1px 0 8px #003e05; transform: translate(-1px, 1px); }
+  100% { text-shadow: 0 0 8px #1bff00; transform: translate(0); }
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex-shrink: 0;
+  padding: 1rem 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px); 
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.timebox {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.time {
+  text-align: center;
+  border: 2px solid #1b9e00;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #1b9e00;
+  transition: transform 0.3s ease;
+  min-width: 80px;
+}
+
+.time h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.time p {
+  font-size: 0.8rem;
+  color: #ffffff;
+  margin: 0.5rem 0 0 0;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto; 
+}
+
+
+.main-title {
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 0 0 10px #1bff00, 0 0 20px #1bff00; 
+  margin-bottom: 1rem;
+  color: #1bff00;
+}
+
+.terminal-line {
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.2rem;
+  color: #1bff00;
+  margin: 10px auto 20px auto;
+  text-align: center;
+  display: block;
+}
+
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.right-column {
+  max-width: 400px;
+  height: 500%;
+}
+
+.info-box {
+  border: 2px solid #00ff00;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-family: 'Courier Prime', monospace;
+  box-shadow: 0 0 10px #00ff00;
+  font-size: 1.3rem; 
+}
+
+.terminal-prompt {
+  margin-top: 2rem;
+  font-family: 'Courier Prime', monospace;
+  color: #00ff00;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
+.prompt-icon {
+  color: #1bff00; 
+  margin-right: 5px;
+}
+
+.cursor {
+  animation: blink 0.8s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.footer-buttons button {
+  color: #4ade80;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.footer-buttons button:hover {
+  color: #10b981;
+}
+
+/* STYLES FOR THE THREE STAGE BOXES */
+
+.stage-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+
+.stage-card {
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #1bff00; 
+    border: 1px solid #1bff00; 
+    flex: 1; 
+    min-width: 400px;
+    max-width: 400px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    color: #76ff76; 
+    height: 550px;
+}
+
+.stage-header-wrapper {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.prompt-icon-stage-header {
+    font-size: 1.5em;
+    color: #1bff00; 
+    margin-right: 10px;
+}
+
+.icon-placeholder {
+    font-size: 1.5em; 
+    color: #1bff00; 
+    margin-right: 10px;
+}
+
+.stage-number-box {
+    background-color: #1bff00; 
+    color: #000; 
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 1.8em;
+    color: #1bff00; 
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #1bff00; 
+}
+
+.card-description {
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.required-skills {
+    margin-top: auto; 
+    padding-top: 15px;
+}
+
+.required-skills p {
+    font-size: 0.85em;
+    margin-bottom: 8px;
+    color: #76ff76; 
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+    margin-bottom: 15px;
+}
+
+.skill-tag {
+    background-color: rgba(27, 255, 0, 0.2); 
+    color: #1bff00; 
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.75em;
+    border: 1px solid #1bff00; 
+}
+
+.terminal-command {
+    background-color: rgba(0, 0, 0, 0.9); 
+    padding: 8px 10px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    margin-top: 15px; 
+    border: 1px solid #1bff00; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    color: #1bff00; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px
+) {
+    .stage-card {
+        max-width: calc(50% - 25px); /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .stage-card {
+        max-width: 100%; /* 1 card per row on small screens */
+    }
+    /* Removed body padding adjustment here as it's handled by your main .content padding */
+}
+
+
+.stage-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/*SPONSORS SECTION*/
+
+.sponsors-section {
+    width: 100%;
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px;
+}
+
+.sponsors-section .main-title {
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 0 0 10px #1bff00, 0 0 20px #1bff00;
+    color: #1bff00;
+    margin-bottom: 10px;
+}
+
+.sponsors-section .terminal-line {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    box-shadow: 0 0 5px #1bff00;
+    border: 1px solid #1bff00;
+    color: #1bff00;
+    width: fit-content; 
+    align-self: center; /
+}
+
+.sponsors-section .intro-text {
+    font-size: 1em;
+    text-align: center;
+    color: #76ff76;
+    margin-bottom: 30px;
+}
+
+.sponsor-category {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-icon {
+    font-size: 2em; 
+}
+
+.category-title {
+    font-size: 1.8em;
+    color: #1bff00;
+    margin: 0; 
+}
+
+.sponsor-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin: auto;
+}
+
+/* Gold Sponsors - Bigger cards*/
+.gold-grid .sponsor-card {
+  width: 100%;        
+  max-width: 150%;     
+  min-height: 350px;   
+  padding: 2rem;
+  font-size: 1.2rem;   
+} 
+
+
+/* Silver Sponsors - Medium cards */
+.silver-grid .sponsor-card {
+width: 100%;        
+  max-width: 75%;     
+  min-height: 200px;   
+  padding: 2rem;
+  font-size: 1.2rem;   
+}
+
+/* Bronze Sponsors - Smaller cards */
+.bronze-grid .sponsor-card {
+  flex: 0 1 190px;
+  max-width: 200px;
+  min-height: 200px;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.sponsor-card {
+  flex: 1 1 250px;       
+  max-width: 300px;     
+  background: #000;
+  border: 1px solid #1bff00;
+  padding: 1rem;
+  box-shadow: 0 0 10px #1bff00;
+}
+
+
+.logo-placeholder {
+    width: 150px; 
+    height: 100px;
+    background-color: rgba(27, 255, 0, 0.1); 
+    border: 1px dashed #1bff00; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #1bff00;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.sponsor-name {
+    font-size: 1em;
+    font-weight: bold;
+    color: #1bff00;
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .sponsor-grid {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .sponsor-card {
+        max-width: 90%; 
+    }
+    .sponsors-section .main-title {
+        font-size: 2rem;
+    }
+    .category-title {
+        font-size: 1.5em;
+    }
+}
+
+
+/* EVENT AGENDA */
+
+
+.event-agenda-section {
+    width: 100%;
+    max-width: 900px; /* Adjust to match your overall content width */
+    margin: 40px auto; /* Center the section with vertical margin */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    gap: 20px;
+}
+
+.event-agenda-section .main-title {
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 0 0 10px #1bff00, 0 0 20px #1bff00;
+    color: #1bff00;
+    margin-bottom: 10px;
+}
+
+.event-agenda-section .terminal-line {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    box-shadow: 0 0 5px #1bff00;
+    border: 1px solid #1bff00;
+    color: #1bff00;
+    width: fit-content; /* Make it fit the content */
+    align-self: center; /* Center the terminal line */
+}
+
+.event-agenda-section .intro-text {
+    font-size: 1em;
+    text-align: center;
+    color: #76ff76;
+    margin-bottom: 30px;
+}
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 25px; /* Space between timeline items */
+    position: relative; /* For the vertical line */
+}
+
+/* Vertical timeline line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 40px; /* Adjust to align with icons */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #1bff00; /* Green line */
+    box-shadow: 0 0 5px #1bff00;
+    z-index: 0;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start; /* Align icon and card to the top */
+    position: relative;
+    z-index: 1; /* Ensure items are above the line */
+}
+
+.timeline-icon-wrapper {
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    width: 80px; /* Space for icon and time */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px; /* Adjust icon vertical alignment */
+}
+
+.timeline-icon {
+    font-size: 2.5em; /* Size of the icon */
+    color: #1bff00;
+    text-shadow: 0 0 8px #1bff00;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for icon */
+    border-radius: 50%; /* Make it circular */
+    padding: 10px;
+    border: 2px solid #1bff00;
+    box-shadow: 0 0 10px #1bff00;
+}
+
+.event-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #1bff00;
+    border: 1px solid #1bff00;
+    flex-grow: 1; /* Allow card to take remaining space */
+    margin-left: 20px; /* Space between icon and card */
+    color: #76ff76;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+.event-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.event-time {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #1bff00;
+}
+
+.event-duration {
+    background-color: rgba(27, 255, 0, 0.2);
+    color: #1bff00;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    border: 1px solid #1bff00;
+}
+
+.process-id {
+    font-size: 0.85em;
+    color: #76ff76;
+    margin-left: auto; /* Pushes it to the right */
+}
+
+.event-title {
+    font-size: 1.5em;
+    color: #1bff00;
+    text-shadow: 0 0 5px #1bff00;
+    margin: 0; /* Remove default margin */
+}
+
+.event-description {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.event-status {
+    font-size: 0.85em;
+    color: #76ff76;
+    margin-top: 10px;
+}
+
+.status-indicator {
+    color: #1bff00;
+    margin-right: 5px;
+}
+
+/* Responsive adjustments for agenda */
+@media (max-width: 768px) {
+    .timeline-container::before {
+        left: 25px; /* Adjust line position for smaller screens */
+    }
+    .timeline-icon-wrapper {
+        width: 50px; /* Smaller space for icon */
+    }
+    .timeline-icon {
+        font-size: 2em; /* Smaller icon */
+        padding: 8px;
+    }
+    .event-card {
+        margin-left: 15px; /* Smaller gap */
+        padding: 15px;
+    }
+    .event-header {
+        flex-wrap: wrap; /* Allow header elements to wrap */
+        gap: 10px;
+    }
+    .process-id {
+        margin-left: 0; /* Remove auto margin to allow wrapping */
+        width: 100%; /* Take full width if wrapped */
+    }
+    .event-title {
+        font-size: 1.3em;
+    }
+}
+
+      /*VENUS AND THE MAP */
+.venue-date-section {
+    width: 100%;
+    max-width: 900px; /* Adjust to match your overall content width */
+    margin: 40px auto; /* Center the section with vertical margin */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    gap: 20px;
+}
+
+.venue-date-section .main-title {
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 0 0 10px #1bff00, 0 0 20px #1bff00;
+    color: #1bff00;
+    margin-bottom: 10px;
+}
+
+.venue-date-section .terminal-line {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    box-shadow: 0 0 5px #1bff00;
+    border: 1px solid #1bff00;
+    color: #1bff00;
+    width: fit-content; /* Make it fit the content */
+    align-self: center; /* Center the terminal line */
+}
+
+.venue-content-wrapper {
+  display: flex;
+  gap: 20px; /* space between the two boxes */
+  align-items: flex-start; /* align them at the top */
+  justify-content: space-between; /* optional - spread them out */
+  flex-wrap: wrap; /* so it wraps on smaller screens */
+}
+
+
+.terminal-output-column,
+.navigation-system-column {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #1bff00;
+    border: 1px solid #1bff00;
+    flex: 1; /* Allows columns to grow and shrink */
+    min-width: 300px; /* Minimum width for each column */
+    max-width: 45%; /* Max width to allow two columns side-by-side */
+    color: #76ff76;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.terminal-block {
+    margin-bottom: 15px;
+}
+
+.terminal-prompt-line {
+    display: flex;
+    gap: 5px;
+    font-size: 0.9em;
+    color: #1bff00;
+    margin-bottom: 5px;
+}
+
+.prompt-user {
+    color: #1bff00;
+}
+
+.prompt-path {
+    color: #76ff76;
+}
+
+.prompt-command {
+    color: #1bff00;
+}
+
+.terminal-response {
+    font-size: 1em;
+    color: #76ff76;
+    padding-left: 10px; /* Indent response */
+    white-space: pre-wrap;
+}
+
+.terminal-response.status-ready {
+    color: #1bff00; /* Brighter green for READY_TO_EXECUTE */
+    font-weight: bold;
+    text-shadow: 0 0 5px #1bff00;
+}
+
+.navigation-system-column .column-title {
+    font-size: 1.5em;
+    color: #1bff00;
+    text-shadow: 0 0 5px #1bff00;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    /* The iframe itself will handle height, but you can set a min-height if needed */
+    margin-bottom: 15px;
+}
+
+.map-coordinates {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #1bff00;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    border: 1px solid #1bff00;
+    box-shadow: 0 0 5px #1bff00;
+    white-space: nowrap;
+}
+
+.get-directions-button {
+    background-color: #1bff00; /* Green button */
+    color: #000; /* Black text */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 0 8px #1bff00;
+}
+
+.get-directions-button:hover {
+    background-color: #00cc00; /* Slightly darker green on hover */
+    box-shadow: 0 0 15px #1bff00;
+}
+
+.get-directions-button .fas {
+    font-size: 1.1em;
+}
+
+.location-details-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #1bff00;
+    border: 1px solid #1bff00;
+    width: calc(45% - 15px); /* Match width of columns above for a balanced look */
+    align-self: flex-start; /* Align to the left */
+    margin-top: 30px;
+    color: #76ff76;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.location-details-box .column-title {
+    font-size: 1.5em;
+    color: #1bff00;
+    text-shadow: 0 0 5px #1bff00;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1em;
+}
+
+.detail-icon {
+    font-size: 1.2em;
+    color: #1bff00;
+    flex-shrink: 0;
+}
+
+.quick-access-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #1bff00;
+    border: 1px solid #1bff00;
+    text-align: center;
+    margin-top: 30px;
+    width: fit-content; /* Make box fit its content */
+    align-self: center; /* Center the box */
+    color: #76ff76;
+}
+
+.access-label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #76ff76;
+}
+
+.access-code {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #1bff00;
+    text-shadow: 0 0 10px #1bff00;
+    margin: 0;
+}
+
+.terminal-box {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #1bff00;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 0 8px #1bff00;
+    font-family: monospace;
+    font-size: 1.2em;
+    color: #76ff76;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+/* Responsive adjustments for venue & date section */
+@media (max-width: 768px) {
+    .venue-content-wrapper {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 20px;
+    }
+    .terminal-output-column,
+    .navigation-system-column,
+    .location-details-box {
+        max-width: 100%; /* Full width for stacked columns */
+        width: 100%; /* Ensure full width */
+    }
+    .venue-date-section .main-title {
+        font-size: 2rem;
+    }
+    .navigation-system-column .column-title,
+    .location-details-box .column-title {
+        font-size: 1.3em;
+    }
+    .quick-access-box {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+
+
+
+
+/* Contant css */
+
+.contact-matrix-section {
+    width: 100%;
+    max-width: 900px; /* Adjust to match your overall content width */
+    margin: 40px auto; /* Center the section with vertical margin */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    gap: 20px;
+}
+
+.contact-matrix-section .main-title {
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 0 0 10px #1bff00, 0 0 20px #1bff00;
+    color: #1bff00;
+    margin-bottom: 10px;
+}
+
+.contact-matrix-section .terminal-line {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    box-shadow: 0 0 5px #1bff00;
+    border: 1px solid #1bff00;
+    color: #1bff00;
+    width: fit-content; /* Make it fit the content */
+    align-self: center; /* Center the terminal line */
+}
+
+.contact-matrix-section .intro-text {
+    font-size: 1em;
+    text-align: center;
+    color: #76ff76;
+    margin-bottom: 30px;
+}
+
+.contact-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    gap: 30px; /* Space between the two columns */
+    width: 100%;
+    justify-content: center;
+}
+
+.contact-column {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #1bff00;
+    border: 1px solid #1bff00;
+    flex: 1; /* Allows columns to grow and shrink */
+    min-width: 300px; /* Minimum width for each column */
+    max-width: 45%; /* Max width to allow two columns side-by-side */
+    color: #76ff76;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.column-title {
+    font-size: 1.5em;
+    color: #1bff00;
+    text-shadow: 0 0 5px #1bff00;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Align icon with the top of text */
+    gap: 15px;
+}
+
+.contact-icon {
+    font-size: 1.5em;
+    color: #1bff00;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    padding-top: 2px; /* Adjust vertical alignment */
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-value {
+    font-size: 1em;
+    font-weight: bold;
+    color: #1bff00;
+    margin: 0;
+}
+
+.contact-label {
+    font-size: 0.8em;
+    color: #76ff76;
+    margin: 0;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed rgba(27, 255, 0, 0.3); /* Dashed separator */
+    margin-bottom: 10px;
+}
+
+.social-item:last-of-type {
+    border-bottom: none; /* No border for the last item */
+    margin-bottom: 0;
+}
+
+.social-name {
+    font-size: 1em;
+    font-weight: bold;
+    color: #1bff00;
+    margin: 0;
+    flex-grow: 1; /* Allows name to take available space */
+}
+
+.social-handle {
+    font-size: 0.9em;
+    color: #76ff76;
+    margin: 0;
+}
+
+.external-link {
+    color: #1bff00;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    margin-left: 10px; /* Space from handle */
+}
+
+.external-link:hover {
+    color: #76ff76;
+}
+
+.social-follow-button {
+    background-color: rgba(27, 255, 0, 0.2);
+    color: #1bff00;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #1bff00;
+    font-size: 0.9em;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    align-self: center; /* Center the button */
+}
+
+.social-follow-button:hover {
+    background-color: rgba(27, 255, 0, 0.4);
+    box-shadow: 0 0 15px #1bff00;
+}
+
+.response-time-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #1bff00;
+    border: 1px solid #1bff00;
+    text-align: center;
+    margin-top: 30px;
+    width: fit-content; /* Make box fit its content */
+    align-self: center; /* Center the box */
+    color: #76ff76;
+}
+
+.response-label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #76ff76;
+}
+
+.response-value {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #1bff00;
+    text-shadow: 0 0 10px #1bff00;
+    margin: 0;
+}
+
+.response-note {
+    font-size: 0.8em;
+    color: #76ff76;
+    margin-top: 5px;
+}
+
+/* Footer-like section styles */
+.footer-message {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 50px; /* Space above footer */
+    padding-top: 30px;
+    border-top: 1px dashed rgba(27, 255, 0, 0.3); /* Separator line */
+    text-align: center;
+    color: #76ff76;
+}
+
+.footer-message .terminal-line {
+    margin-bottom: 15px;
+}
+
+.red-pill-prompt {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1bff00;
+    text-shadow: 0 0 5px #1bff00;
+    margin-bottom: 10px;
+}
+
+.copyright-info {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+.built-with {
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.built-with-icon {
+    color: #ff0000; /* Red heart icon */
+    text-shadow: 0 0 5px #ff0000;
+}
+
+/* Responsive adjustments for contact section */
+@media (max-width: 768px) {
+    .contact-content-wrapper {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 20px;
+    }
+    .contact-column {
+        max-width: 100%; /* Full width for stacked columns */
+    }
+    .contact-matrix-section .main-title {
+        font-size: 2rem;
+    }
+    .column-title {
+        font-size: 1.3em;
+    }
+    .response-time-box {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+    .response-value {
+        font-size: 1.8em;
+    }
+    .footer-message {
+        padding-top: 20px;
+    }
+}
